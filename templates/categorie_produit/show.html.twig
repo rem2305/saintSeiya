@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CategorieProduit{% endblock %}
+
+{% block body %}
+    <h1>CategorieProduit</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ categorie_produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ categorie_produit.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorie_produit_index') }}">back to list</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.title }}</td>
+                <td>{{ produit.content }}</td>
+                <td>
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+ 
+{% endblock %}
