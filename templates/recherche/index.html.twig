@@ -4,42 +4,36 @@
 
 {% block body %}
 
-<div>
-    <form>
-        <input type="search" name="search" placeholder="Tapez votre Recherche...">
-        <button type="submit">Rechercher</button>
-    </form>
-</div>
-<table>
-{% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.content }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                </td>
-            </tr>
+<h1>Résultats de la recherche</h1>
+<h2 class="my-4 "> Nous avons trouvé les Articles suivants pour vous :</h2>
+
+        {% for article in articles %}
+        <div>
+            <h3>{{ article.title }}</h3>
+        </div>
+            <h5>{{ article.content }} </h5>
+        <div>
+            <a href="{{ path('app_article_show', {'id': article.id}) }}">Consulter le contenu de l'article</a>
+        </div>
         {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
+            <div>
+                Aucun articles trouvés
+            </div>
         {% endfor %}
-</table>
-{# <table>
-{% for produit in produits %}
-            <tr>
-                <td>{{ produit.id }}</td>
-                <td>{{ produit.title }}</td>
-                <td>{{ produit.content }}</td>
-                <td>
-                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
-                </td>
-            </tr>
+        
+
+        {% for produit in produits %}
+        <div>
+            <h3>{{ produit.title }}</h3>
+        </div>
+            <h5>{{ produit.content }} </h5>
+        <div>
+            <a href="{{ path('app_produit_show', {'id': produit.id}) }}">Consulter le contenu du produit</a>
+        </div> 
         {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
+            <div>
+                Aucun produits trouvés
+            </div>
         {% endfor %}
-</table> #}
+
 {% endblock %}
