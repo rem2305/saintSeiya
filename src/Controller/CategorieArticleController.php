@@ -4,11 +4,12 @@ namespace App\Controller;
 
 use App\Entity\CategorieArticle;
 use App\Form\CategorieArticle1Type;
-use App\Repository\CategorieArticleRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
+use App\Repository\CategorieArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/categorie/article')]
 class CategorieArticleController extends AbstractController
@@ -30,5 +31,7 @@ class CategorieArticleController extends AbstractController
             'articles' => $articles
         ]);
     }
+
+    
 
 }

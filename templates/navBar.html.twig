@@ -1,6 +1,6 @@
  <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Saint Seiya Infinite</a>
+    <a class="navbar-brand" href="{{ path('app_home') }}">Saint Seiya Infinite</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,24 +15,24 @@
             La saga
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{path('app_categorie_article_index')}}">Hypermythe</a></li>
-            <li><a class="dropdown-item" href="#">Personnages</a></li>
+            <li><a class="dropdown-item" href="{{path('app_categorie_article_show', {id:1})}}">Hypermythe</a></li>
+            <li><a class="dropdown-item" href="{{path('app_categorie_article_show', {id:2})}}">Personnages</a></li>
             
           </ul>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Actualités</a>
+          <a class="nav-link" href="{{path('app_categorie_article_show', {id:3})}}">Actualités</a>
         </li>
         
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{{path('app_categorie_produit_index')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Boutique
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Mangas</a></li>
-            <li><a class="dropdown-item" href="#">Myth Cloth</a></li>
-            <li><a class="dropdown-item" href="#">Animés</a></li>
+            <li><a class="dropdown-item" href="{{path('app_categorie_produit_show', {id:1})}}">Myth Cloth</a></li>
+            <li><a class="dropdown-item" href="{{path('app_categorie_produit_show', {id:2})}}">Mangas</a></li>
+            <li><a class="dropdown-item" href="{{path('app_categorie_produit_show', {id:3})}}">Animés</a></li>
           </ul>
         </li>
         

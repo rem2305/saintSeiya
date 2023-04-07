@@ -3,7 +3,7 @@
 {% block title %}CategorieArticle index{% endblock %}
 
 {% block body %}
-    <h1>CategorieArticle index</h1>
+    <h1>Toutes les Categorie d'articles</h1>
 
     <table class="table">
         <thead>
@@ -19,17 +19,17 @@
                 <td>{{ categorie_article.id }}</td>
                 <td>{{ categorie_article.name }}</td>
                 <td>
-                    <a href="{{ path('app_admin_categorie_article_show', {'id': categorie_article.id}) }}">show</a>
-                    <a href="{{ path('app_admin_categorie_article_edit', {'id': categorie_article.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_categorie_article_show', {'id': categorie_article.id}) }}">voir</a>
+                    <a href="{{ path('app_admin_categorie_article_edit', {'id': categorie_article.id}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucune catégorie trouvée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_categorie_article_new') }}">Create new</a>
+    <a href="{{ path('app_admin_categorie_article_new') }}">Creer une nouvelle catégorie</a>
 {% endblock %}

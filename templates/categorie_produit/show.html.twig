@@ -3,45 +3,34 @@
 {% block title %}CategorieProduit{% endblock %}
 
 {% block body %}
-    <h1>CategorieProduit</h1>
+    <h1>{{ categorie_produit.name }}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ categorie_produit.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ categorie_produit.name }}</td>
-            </tr>
-        </tbody>
-    </table>
+    
 
-    <a href="{{ path('app_categorie_produit_index') }}">back to list</a>
+    <a href="{{ path('app_categorie_produit_index') }}">Retourner à la liste des catégories</a>
+
+    <div class= "mt-5">
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>actions</th>
+                <th>Nom du produit</th>
+                <th>Contenu de l'article</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for produit in produits %}
             <tr>
-                <td>{{ produit.id }}</td>
                 <td>{{ produit.title }}</td>
                 <td>{{ produit.content }}</td>
                 <td>
-                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">consulter</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">aucun article trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
