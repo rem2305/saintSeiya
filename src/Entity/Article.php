@@ -28,6 +28,24 @@ class Article
     #[ORM\JoinColumn(nullable: false)]
     private ?CategorieArticle $categorieArticle = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $Introduction = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $TitreSecondaire = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $TitreConclusion = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $Conclusion = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Image = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $dateDeCreation = null;
+
     /* #[ORM\ManyToOne(inversedBy: 'articles')]
     private ?Categorie $categorie = null; */
 
@@ -92,6 +110,78 @@ class Article
    public function setCategorieArticle(?CategorieArticle $categorieArticle): self
    {
        $this->categorieArticle = $categorieArticle;
+
+       return $this;
+   }
+
+   public function getIntroduction(): ?string
+   {
+       return $this->Introduction;
+   }
+
+   public function setIntroduction(string $Introduction): self
+   {
+       $this->Introduction = $Introduction;
+
+       return $this;
+   }
+
+   public function getTitreSecondaire(): ?string
+   {
+       return $this->TitreSecondaire;
+   }
+
+   public function setTitreSecondaire(string $TitreSecondaire): self
+   {
+       $this->TitreSecondaire = $TitreSecondaire;
+
+       return $this;
+   }
+
+   public function getTitreConclusion(): ?string
+   {
+       return $this->TitreConclusion;
+   }
+
+   public function setTitreConclusion(string $TitreConclusion): self
+   {
+       $this->TitreConclusion = $TitreConclusion;
+
+       return $this;
+   }
+
+   public function getConclusion(): ?string
+   {
+       return $this->Conclusion;
+   }
+
+   public function setConclusion(string $Conclusion): self
+   {
+       $this->Conclusion = $Conclusion;
+
+       return $this;
+   }
+
+   public function getImage(): ?string
+   {
+       return $this->Image;
+   }
+
+   public function setImage(string $Image): self
+   {
+       $this->Image = $Image;
+
+       return $this;
+   }
+
+   public function getDateDeCreation(): ?\DateTimeInterface
+   {
+       return $this->dateDeCreation;
+   }
+
+   public function setDateDeCreation(\DateTimeInterface $dateDeCreation): self
+   {
+       $this->dateDeCreation = $dateDeCreation;
 
        return $this;
    }

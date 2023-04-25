@@ -10,7 +10,9 @@
             <tr>
                 <th>Id</th>
                 <th>Titre de l'article</th>
-                <th>Contenu de l'article</th>
+                <th>Extrait de l'article</th>
+                <th>Image</th>
+                <th>Catégorie de l'article</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,9 +21,15 @@
             <tr>
                 <td>{{ article.id }}</td>
                 <td>{{ article.title }}</td>
-                <td>{{ article.content }}</td>
+                <td>{{ article.introduction | slice(0, 235) }}...</td>
+                <td><div class="card m-1" style="width: 9rem;">           
+            {% if article.image %}            
+            <img src="{{ asset('imagesArticle/' ~ article.image) }}" class="card-img-top" alt="">
+            {% endif %}
+            <div class="card-body"></td>
+                <td>{{ article.categorieArticle }}</td>
                 <td>
-                    <a href="{{ path('app_admin_article_show', {'id': article.id}) }}">voir</a>
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}">voir</a>
                     <a href="{{ path('app_admin_article_edit', {'id': article.id}) }}">modifier</a>
                 </td>
             </tr>
