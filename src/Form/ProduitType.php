@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\All;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProduitType extends AbstractType
@@ -44,7 +45,25 @@ class ProduitType extends AbstractType
             ])
             ->add('prix')
             ->add('vendeur1')
+            ->add('lien', UrlType::class, [
+              'default_protocol' => 'https',
+              'required' => false,
+              'attr' => [
+                  'class' => 'form-control',
+                  'placeholder' => 'https://domain.com',
+                  'pattern' => '^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
+              ]
+          ])
             ->add('vendeur2')
+            ->add('lien2', UrlType::class, [
+              'default_protocol' => 'https',
+              'required' => false,
+              'attr' => [
+                  'class' => 'form-control',
+                  'placeholder' => 'https://domain.com',
+                  'pattern' => '^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
+              ]
+          ])
             ->add('introduction')
             ->add('titreSecondaire')
             ->add('content')

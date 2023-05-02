@@ -19,7 +19,7 @@ class Produit
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
     #[ORM\ManyToOne(inversedBy: 'produits')]
@@ -30,8 +30,8 @@ class Produit
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Prix = null;
+    #[ORM\Column]
+    private ?int $Prix = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Vendeur1 = null;
@@ -62,6 +62,12 @@ class Produit
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'favoris')]
     private Collection $favoris;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $lien = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $lien2 = null;
 
     public function __construct()
     {
@@ -284,6 +290,30 @@ class Produit
     public function removeFavori(User $favori): self
     {
         $this->favoris->removeElement($favori);
+
+        return $this;
+    }
+
+    public function getLien(): ?string
+    {
+        return $this->lien;
+    }
+
+    public function setLien(string $lien): self
+    {
+        $this->lien = $lien;
+
+        return $this;
+    }
+
+    public function getLien2(): ?string
+    {
+        return $this->lien2;
+    }
+
+    public function setLien2(string $lien2): self
+    {
+        $this->lien2 = $lien2;
 
         return $this;
     }
