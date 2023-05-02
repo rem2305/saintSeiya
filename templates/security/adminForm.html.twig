@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Passer en admin : {{user.email ~ ' ' ~ user.pseudo }}</h1>
+    <h4>Veuillez entrer le code secret afin de confirmer l'action : </h4>
+
+    {{ form(formAdmin) }}
+
+
+{% endblock %}

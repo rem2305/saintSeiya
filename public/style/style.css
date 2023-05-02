@@ -1,0 +1,15 @@
+body{
+    background-image: url("../istockphoto-1148605619-170667a.jpg");
+}
+h2, h3, h4, h5, h6, p{
+    color: #fff;
+}
+title{
+    display: inline !important;
+    font-size:300%;
+    color: black;
+}
+
+.card{
+    background-color: rgba(0, 115, 255, 0.374);
+}

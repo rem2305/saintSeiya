@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes favoris{% endblock %}
+
+
+
+{% block body %}
+
+<h1>Mes Favoris</h1>
+
+{% if is_granted("ROLE_USER") %}
+
+				{% for produits in favoris_twig %}
+
+                
+                   <h2> {{ produits.title }}</h2>
+                  
+                {% endfor %}
+
+{% endif %}
+
+
+{% endblock %}

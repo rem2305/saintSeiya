@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CategorieArticle{% endblock %}
+{% block title %}{{ categorie_article.name }}{% endblock %}
 
 {% block body %}
 
@@ -11,7 +11,7 @@
 
     <div class="row d-flex justify-content-center text-center">
             {% for article in articles | reverse %}
-        <div class="card my-5 py-5" style="width: 18rem;">
+        <div class="card py-3 m-1 col-2" style="width: 18rem;">
            
             {% if article.image %}            
             <img src="{{ asset('imagesArticle/' ~ article.image) }}" class="card-img-top" alt="">

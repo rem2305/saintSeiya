@@ -39,7 +39,7 @@ class ProduitController extends AbstractController
         $em->persist($produit);
         $em->flush();
 
-        return $this->redirect('app_produit_show');
+        return $this->redirectToRoute('app_produit_show', ['id' => $produit->getId()]);
     }
     
     #[Route('/favoris/retrait/{id}', name: 'retrait_favoris', methods: ['GET'])]
@@ -55,7 +55,25 @@ class ProduitController extends AbstractController
         $em->persist($produit);
         $em->flush();
 
-        return $this->redirect('app_produit_show');
+        return $this->redirectToRoute('app_produit_show', ['id' => $produit->getId()]);
     }
+    
+    #[Route('/favoris/get/{id}', name: 'app_show_favoris', methods: ['GET'])]
+    public function getFavoris(Produit $produit, EntityManagerInterface $em, ManagerRegistry $doctrine, ProduitRepository $repoProd): Response
+    {
+        /* if(!$produit){
+            throw new NotFoundHttpException('Pas de produit trouvé');
+        } */
+        $produits = $produit->getFavoris($this->getUser());
+        $favoris = $repoProd->FindAll();
+        
+        $em = $doctrine->getManager();
+        $em->persist($produit);
+        $em->flush();
 
+        return $this->render('produit/show_Favoris.html.twig', [
+            'produits' => $produits,
+            'favoris_twig' => $favoris
+        ]);
+    }
 }
