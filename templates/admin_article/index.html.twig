@@ -5,6 +5,7 @@
 {% block body %}
     <h1>Tous les Article</h1>
 
+<div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
@@ -40,6 +41,7 @@
         {% endfor %}
         </tbody>
     </table>
+</div>
 
     <a href="{{ path('app_admin_article_new') }}">Créer un nouvel article</a>
 {% endblock %}
