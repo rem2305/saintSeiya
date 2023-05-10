@@ -30,7 +30,7 @@
             Boutique
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{path('app_categorie_produit_show', {id:1})}}">Myth Cloth</a></li>
+            <li><a class="dropdown-item" href="{{path('app_categorie_produit_show', {id:1})}}">Figurines</a></li>
             <li><a class="dropdown-item" href="{{path('app_categorie_produit_show', {id:2})}}">Mangas</a></li>
             <li><a class="dropdown-item" href="{{path('app_categorie_produit_show', {id:3})}}">Animés</a></li>
           </ul>
@@ -48,6 +48,7 @@
           <ul class="dropdown-menu"> #}
           {% if   is_granted("IS_AUTHENTICATED_FULLY")  %}
             <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('app_profile_show') }}">Profil</a></li>
             {% else %}
             <li class="nav-item"><a class="nav-link" href="{{path('app_login')}}">Connexion</a></li>
             {# <li><hr class="dropdown-divider"></li> #}
@@ -73,7 +74,9 @@
           </ul>
         </li>
       </ul>
+      {# j'ajoute l'action pour rediriger vers la page de recherche et je rajoute la methode GET #}
       <form class="d-flex" role="search" action="{{path('app_recherche')}}" method="GET">
+      {# Ici j'ajoute le name="search" #}
         <input class="form-control me-2" name="search" type="search" placeholder="Tapez votre recherche..." aria-label="Search">
         <button class="btn btn-outline-warning" type="submit">Rechercher</button>
       </form>

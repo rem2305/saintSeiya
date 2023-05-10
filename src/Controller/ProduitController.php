@@ -64,12 +64,14 @@ class ProduitController extends AbstractController
         /* if(!$produit){
             throw new NotFoundHttpException('Pas de produit trouvé');
         } */
-        $produits = $produit->getFavoris($this->getUser());
+        /* $produits = $produit->getFavoris($this->getUser());
         $favoris = $repoProd->FindAll();
         
         $em = $doctrine->getManager();
         $em->persist($produit);
-        $em->flush();
+        $em->flush(); */
+
+        $favoris = $produits->getFavoris();
 
         return $this->render('produit/show_Favoris.html.twig', [
             'produits' => $produits,

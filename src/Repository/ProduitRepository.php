@@ -70,7 +70,7 @@ class ProduitRepository extends ServiceEntityRepository
     public function findBySearch(string $text): array
     {
        return $this->createQueryBuilder('a')
-            ->andWhere('a.content LIKE :val')
+            ->andWhere('a.content LIKE :val OR a.title LIKE :val OR a.Vendeur1 LIKE :val OR a.Vendeur2 LIKE :val OR a.Introduction LIKE :val OR a.TitreSecondaire LIKE :val OR a.TitreConclusion LIKE :val OR a.Conclusion LIKE :val')
             ->setParameter('val', "%$text%")
             ->getQuery()
             ->getResult()

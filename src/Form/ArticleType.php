@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ArticleType extends AbstractType
 {
@@ -17,7 +18,10 @@ class ArticleType extends AbstractType
             ->add('imageForm',  FileType::class, [
                 'mapped' => false, 'required' => false
             ])
-            ->add('Introduction')
+            ->add('Introduction', TextType::class, [
+            
+            'attr' => ['placeholder' => 'Tapez votre introduction']
+        ])
             ->add('TitreSecondaire')
             ->add('content')
             ->add('TitreConclusion')

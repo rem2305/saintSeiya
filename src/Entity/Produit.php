@@ -30,8 +30,8 @@ class Produit
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\Column]
-    private ?int $Prix = null;
+    #[ORM\Column (type: Types::DECIMAL, precision: 5, scale: 2)]
+    private ?string $Prix = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Vendeur1 = null;
@@ -68,6 +68,9 @@ class Produit
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $lien2 = null;
+
+    #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
+    private ?string $prix2 = null;
 
     public function __construct()
     {
@@ -314,6 +317,18 @@ class Produit
     public function setLien2(string $lien2): self
     {
         $this->lien2 = $lien2;
+
+        return $this;
+    }
+
+    public function getPrix2(): ?string
+    {
+        return $this->prix2;
+    }
+
+    public function setPrix2(string $prix2): self
+    {
+        $this->prix2 = $prix2;
 
         return $this;
     }

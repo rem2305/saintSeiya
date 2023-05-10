@@ -37,17 +37,23 @@
 		</div>
 	</div>
 
-	<div class="col-8 d-flex justify-content-start">
+	<div class="row col-8 d-flex justify-content-start">
 
-		<div>
-			<p class="mt-3">{{produit.prix}}</p>
-			<p class="mt-3">{{produit.vendeur1}}</p>
-			<!-- <p class="mt-3"href="{{produit.lien}}">Acheter</p> -->
-			<input type="url" name="entity[url]" class="form-control" placeholder="https://domain.com" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" inputmode="url">
+		<div class="d-flex justify-content-start">
+			<p class="prix mt-3 col-2">{{produit.prix}}€</p>
+			<p class="vendeur mt-3 col-4">{{produit.vendeur1}}</p>
+			<p class="acheter btn btn-lg btn-info mt-3 col-3" type="submit" href="{{produit.lien}}">Acheter</p>
+			{# <input type="url" name="entity[url]" class="form-control col-3" placeholder="https://domain.com" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" inputmode="url"> #}
+		</div>
 
-			<p class="mt-3">{{produit.vendeur2}}</p>
+		<div class="d-flex justify-content-start">
+			<p class="prix mt-3 col-2">{{produit.prix2}}€</p>
+			<p class="vendeur mt-3 col-4">{{produit.vendeur2}}</p>
+			<p class="acheter btn btn-lg btn-info mt-3 col-3" type="submit" href="{{produit.lien2}}">Acheter</p> 
+			{# <input type="url" name="entity[url]" class="form-control" placeholder="https://domain.com" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" inputmode="url"> #}
+		</div>
 
-		<div class="text-danger">
+		<div class="coeur mt-2 text-danger d-flex justify-content-start">
 			{% if is_granted("ROLE_USER") %}
 				{% for favoris in produit.favoris %}
 					{% if favoris.id == app.user.id %}
@@ -69,12 +75,12 @@
 			{% endif %}
 			
 		</div>
-		</div>
-
+			<div>
+				<p class="mt-3">{{produit.introduction}}</p>
+			</div>
 	</div>
 
 			<div>
-				<p class="mt-3">{{produit.introduction}}</p>
 				<h2>
 					{{produit.titreSecondaire}}
 				</h2>

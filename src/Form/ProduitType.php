@@ -54,6 +54,7 @@ class ProduitType extends AbstractType
                   'pattern' => '^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
               ]
           ])
+            ->add('prix2')
             ->add('vendeur2')
             ->add('lien2', UrlType::class, [
               'default_protocol' => 'https',
