@@ -4,3 +4,20 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+mentions_legales: # correspond au name de la route
+    path: /mentions_legales # la route elle même (à mettre dans l'url pour y accéder)
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController # le controller appelé via la route
+    defaults:
+        template: "pages_footer/mentions_legales.html.twig" # le template à afficher
+
+politique_confidentialite: # correspond au name de la route
+    path: /politique_confidentialite # la route elle même (à mettre dans l'url pour y accéder)
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController # le controller appelé via la route
+    defaults:
+        template: "pages_footer/politique_confidentialite.html.twig" # le template à afficher
+
+politique_cookies: # correspond au name de la route
+    path: /politique_cookies # la route elle même (à mettre dans l'url pour y accéder)
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController # le controller appelé via la route
+    defaults:
+        template: "pages_footer/politique_cookies.html.twig" # le template à afficher

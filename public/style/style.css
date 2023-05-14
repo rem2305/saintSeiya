@@ -87,3 +87,7 @@ title{
     border-color: rgb(255, 170, 0);color: rgb(255, 170, 0);
     background-color: rgba(0, 153, 255, 0.389);
 }
+
+#contact_confirmer{
+    background-color: #0f96d5 !important;
+}

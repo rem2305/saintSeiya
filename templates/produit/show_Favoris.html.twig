@@ -6,7 +6,9 @@
 
 {% block body %}
 
-<h1>Mes Favoris</h1>
+<h1 class="text-center">Mes Favoris</h1>
+
+  <div class="row d-flex justify-content-center text-center py-3">
 
 {% if is_granted("ROLE_USER") %}
 
@@ -35,10 +37,10 @@
 
 
 		{% endif %}
-
 	{% endfor %}
 
 {% endif %}
+</div>
 
 
 
