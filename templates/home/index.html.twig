@@ -14,7 +14,7 @@
         <div class="card py-3 m-1 col-2" style="width: 18rem;">
            
             {% if article.image %}            
-            <img src="{{ asset('imagesArticle/' ~ article.image) }}"  style="aspect-ratio: 2/3 ; object-fit:cover" class="card-img-top" alt="">
+            <img src="{{ asset('imagesArticle/' ~ article.image) }}"  style="aspect-ratio: 2/2 ; object-fit:cover" class="card-img-top" alt="">
             {% endif %}
 
             <div class="card-body">
@@ -27,7 +27,7 @@
                 {# <h6>{{ article.auteur }}</h6> #}
                 <h6 class="card-subtitle mb-2 text-muted">{{ article.categorieArticle.name}}</h6>
                 <p class="card-text">{{ article.content | slice(0, 85) }}...</p>
-                <a href="{{ path("app_article_show", {id: article.id} ) }}" class="btn btn-primary card-link">lire l'article</a>
+                <a href="{{ path("app_article_show", {id: article.id} ) }}" class="btn btn-danger card-link">lire l'article</a>
                 
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="card py-3 m-1 col-2" style="width: 18rem;">
            
                      
-            <img src="{{ asset('imagesProduit/' ~ produit.images[0].name) }}" style="aspect-ratio: 2/3 ; object-fit:cover" class="card-img-top" alt="">
+            <img src="{{ asset('imagesProduit/' ~ produit.images[0].name) }}" style="aspect-ratio: 2/2 ; object-fit:cover" class="card-img-top" alt="">
             
 
             <div class="card-body">
@@ -57,7 +57,7 @@
                 {# <h6>{{ produit.auteur }}</h6> #}
                 <h6 class="card-subtitle mb-2 text-muted">{{ produit.categorieProduit.name}}</h6>
                 <p class="card-text">{{ produit.content | slice(0, 85) }}...</p>
-                <a href="{{ path("app_produit_show", {id: produit.id} ) }}" class="btn btn-primary card-link">voir le produit</a>
+                <a href="{{ path("app_produit_show", {id: produit.id} ) }}" class="btn btn-danger card-link">voir le produit</a>
                 
             </div>
         </div>

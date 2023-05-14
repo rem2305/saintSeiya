@@ -66,10 +66,10 @@ class Produit
     #[ORM\Column(type: Types::TEXT)]
     private ?string $lien = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $lien2 = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
+    #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2, nullable: true)]
     private ?string $prix2 = null;
 
     public function __construct()

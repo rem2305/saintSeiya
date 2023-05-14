@@ -21,6 +21,7 @@ class RechercheController extends AbstractController
         
         //Maintenant j'oriente ma recherche sur les articles présents base de données
         $articles = $articleRepository->findBySearch($search);
+        /* dd($articles); */
         $produits = $produitRepository->findBySearch($search);
 
         return $this->render('recherche/index.html.twig', [

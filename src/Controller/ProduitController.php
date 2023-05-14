@@ -64,18 +64,26 @@ class ProduitController extends AbstractController
         /* if(!$produit){
             throw new NotFoundHttpException('Pas de produit trouvé');
         } */
+
+        $produit->getFavoris($this->getUser());
+        $entityManager = $doctrine->getManager();
+
+        $em = $doctrine->getManager();
+        $em->persist($produit);
+        $em->flush();
+
         /* $produits = $produit->getFavoris($this->getUser());
         $favoris = $repoProd->FindAll();
         
         $em = $doctrine->getManager();
         $em->persist($produit);
-        $em->flush(); */
+        $em->flush();
 
-        $favoris = $produits->getFavoris();
+        $favoris = $produits->getFavoris(); */
 
         return $this->render('produit/show_Favoris.html.twig', [
-            'produits' => $produits,
-            'favoris_twig' => $favoris
+            'produit' => $produit,
+            /* 'favoris' => $favoris */
         ]);
     }
 }

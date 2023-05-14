@@ -16,6 +16,8 @@ title{
     font-family: 'Impact', sans-serif;
 }
 
+
+
 .card{
     background-color: rgba(37, 51, 206, 0.275);
     backdrop-filter: blur(1px);
@@ -78,5 +80,10 @@ title{
 
 .coeur{
     font-size: x-large;
-    color: rgb(220, 20, 123) !important;
+    color: rgb(236, 8, 80) !important;
+}
+
+.button{
+    border-color: rgb(255, 170, 0);color: rgb(255, 170, 0);
+    background-color: rgba(0, 153, 255, 0.389);
 }

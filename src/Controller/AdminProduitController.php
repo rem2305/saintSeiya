@@ -131,6 +131,7 @@ class AdminProduitController extends AbstractController
 
     #[Route('/supprime/image/{id}', name: 'produit_delete_image', methods: ['DELETE'])]
     public function deleteImage(Images $image, Request $request, EntityManagerInterface $em, ManagerRegistry $doctrine){
+        
         $data = json_decode($request->getContent(), true);
         
         // on vérifie si le token est valide
@@ -138,11 +139,11 @@ class AdminProduitController extends AbstractController
             //onrécupère le nom de l'image
             $nom = $image->getName();
             // on supprime le fichier
-            unlink($this->getParameter('produit_image'.'/'.$nom));
+            unlink($this->getParameter('produit_image').'/'.$nom);
 
             // on supprime l'entrée de la base
-            /* $em = $doctrine->getManager(); */
-            $em = $this->getDoctrine()->getManager();
+            $em = $doctrine->getManager();
+            /* $em = $this->getDoctrine()->getManager(); */
             $em->remove($image);
             $em->flush();
            
