@@ -36,7 +36,7 @@ class ArticleType extends AbstractType
             ->add('Conclusion', TextareaType::class, [            
                 'attr' => ['placeholder' => 'Tapez la conclusion'], 'label' => false
             ])
-            /* ->add('user') */
+            ->add('user')
             ->add('categorieArticle')
             
         ;

@@ -40,18 +40,18 @@ class ProduitType extends AbstractType
                   'pattern' => '^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
               ], 'label' => false
           ])
-            ->add('prix2', NumberType::class, [            
-                'attr' => ['placeholder' => 'Tapez le prix 2'], 'label' => false])
-            ->add('vendeur2', TextType::class, [            
-                'attr' => ['placeholder' => 'Tapez le nom du vendeur 2'], 'label' => false])
-            ->add('lien2', UrlType::class, [
+            ->add('prix2',  NumberType::class, [            
+                'attr' => ['placeholder' => 'Tapez le prix 2'], 'label' => false, 'required' => false,])
+            ->add('vendeur2',  TextType::class, [            
+                'attr' => ['placeholder' => 'Tapez le nom du vendeur 2'], 'label' => false, 'required' => false,])
+            ->add('lien2',  UrlType::class, [
               'default_protocol' => 'https',
               'required' => false,
               'attr' => [
                   'class' => 'form-control',
                   'placeholder' => 'collez le lien 2 ici',
                   'pattern' => '^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
-              ], 'label' => false
+              ], 'label' => false, 'required' => false,
           ])
             ->add('introduction', TextareaType::class, [            
                 'attr' => ['placeholder' => 'Tapez l\'introduction'], 'label' => false
@@ -66,7 +66,7 @@ class ProduitType extends AbstractType
             ->add('conclusion', TextareaType::class, [            
                 'attr' => ['placeholder' => 'Tapez la conclusion'], 'label' => false
             ])
-            /* ->add('user') */
+            ->add('user')
             ->add('categorieProduit')
         ;
     }
