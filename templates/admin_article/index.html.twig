@@ -3,26 +3,41 @@
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1>Tous les Article</h1>
+<div class="row d-flex justify-content-center my-1">
+    <h1 class="col-6">Tous les Articles</h1>
+    <a class="btn btn-lg btn-info col-3" href="{{ path('app_admin_article_new') }}">Créer un nouvel article</a>
+</div>
 
+<div class="row d-flex justify-content-center text-center">
+    <div class="card py-3 m-1 col-6" style="width: 60rem;">
+<div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Titre de l'article</th>
-                <th>Contenu de l'article</th>
+                <th>Extrait de l'article</th>
+                <th>Image</th>
+                <th>Catégorie de l'article</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for article in articles %}
             <tr>
-                <td>{{ article.id }}</td>
+                {# <td>{{ article.id }}</td> #}
                 <td>{{ article.title }}</td>
-                <td>{{ article.content }}</td>
+                <td>{{ article.introduction | slice(0, 235) }}...</td>
+                <td><div style="width: 9rem;">           
+            {% if article.image %}            
+            <img src="{{ asset('imagesArticle/' ~ article.image) }}" class="card-img-top"  alt="">
+                    </div>
+            {% endif %}</td>
+            {# <div class="card-body"> #}
+                <td>{{ article.categorieArticle }}</td>
                 <td>
-                    <a href="{{ path('app_admin_article_show', {'id': article.id}) }}">voir</a>
-                    <a href="{{ path('app_admin_article_edit', {'id': article.id}) }}">modifier</a>
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}" alt="voir" class="text-success"><i class="fa-solid fa-eye"></i></a>
+                    <a href="{{ path('app_admin_article_edit', {'id': article.id}) }}" alt="modifier" class="text-danger"><i class="fa-solid fa-pen"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -32,6 +47,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_admin_article_new') }}">Créer un nouvel article</a>
+</div>
+</div>
+</div>
+    
 {% endblock %}

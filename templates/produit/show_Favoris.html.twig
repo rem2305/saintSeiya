@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes favoris{% endblock %}
+
+
+
+{% block body %}
+
+<h1 class="text-center">Mes Favoris</h1>
+
+  <div class="row d-flex justify-content-center text-center py-3">
+
+{% if is_granted("ROLE_USER") %}
+
+	{% for favoris in produit.favoris %}
+
+		{% if favoris.id == app.user.id %}
+
+			<div class="card py-3 m-1 col-2" style="width: 18rem;">
+
+
+				<img src="{{ asset('imagesProduit/' ~ produit.images[0].name) }}" style="aspect-ratio: 2/2 ; object-fit:cover" class="card-img-top" alt="">
+
+
+				<div class="card-body">
+
+					<h5 class="card-title">{{ produit.title }}</h5>
+					<h6 class="card-subtitle mb-2 text-muted">créé le :
+						{{ produit.dateDeCreation | date("d/m/Y \à H\\hi") }}</h6>
+
+					<h6 class="card-subtitle mb-2 text-muted">{{ produit.categorieProduit.name}}</h6>
+					<p class="card-text">{{ produit.content | slice(0, 85) }}...</p>
+					<a href="{{ path("app_produit_show", {id: produit.id} ) }}" class="btn btn-danger card-link">voir le produit</a>
+
+				</div>
+			</div>
+
+
+		{% endif %}
+	{% endfor %}
+
+{% endif %}
+</div>
+
+
+
+{% endblock %}

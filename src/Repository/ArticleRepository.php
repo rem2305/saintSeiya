@@ -66,12 +66,16 @@ class ArticleRepository extends ServiceEntityRepository
 //    }
 
 /**
+ * // Methode qui retourne un ensemble (un tableau) d'articles
      * @return Article[] Returns an array of Article objects
      */
+    // Je nomme ma methode (findBySearch) et lui donne un Type (string)
     public function findBySearch(string $text): array
     {
        return $this->createQueryBuilder('a')
-            ->andWhere('a.content LIKE :val')
+       // Je récupère les articles où le contenu est comme (LIKE) la valeur
+            ->andWhere('a.content LIKE :val OR a.title LIKE :val OR a.TitreSecondaire LIKE :val OR a.TitreConclusion LIKE :val OR a.Conclusion LIKE :val')
+            // Je défini ma valeur 
             ->setParameter('val', "%$text%")
             ->getQuery()
             ->getResult()

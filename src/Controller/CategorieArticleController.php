@@ -30,8 +30,6 @@ class CategorieArticleController extends AbstractController
             'categorie_article' => $categorieArticle,
             'articles' => $articles
         ]);
-    }
-
-    
+    }  
 
 }

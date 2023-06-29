@@ -41,6 +41,11 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            /* $user->setIsValid(false); */
+
+            // on génére et affecte 
+            /* $user->setToken($tokenGenerator->generateToken()); */
+
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -53,8 +58,8 @@ class RegistrationController extends AbstractController
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
-
-            return $this->redirectToRoute('app_home');
+            $this->addFlash("success", "Inscription réussie !");
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [

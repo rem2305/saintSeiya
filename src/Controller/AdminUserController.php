@@ -23,6 +23,7 @@ class AdminUserController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_user_new', methods: ['GET', 'POST'])]
+    // J'intègre l'objet UserPasswordHasherInterface à la fonction pour pouvoir utiliser le hashage de mot de passe 
     public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
@@ -30,9 +31,14 @@ class AdminUserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Je récupères les données saisies pour le mot de passe en clair
             $plainPassword = $form->get('plainPassword')->getData();
+            //Ici j'utilise la methode qui va hasher le mot de passe
+            // (avec les paramètres : pour l'utilisateur et le mot de passe en clair)
             $hashPassword = $passwordHasher->hashPassword($user, $plainPassword);
+            // J'applique le mot de passe hashé à l'utilisateur
             $user->setPassword($hashPassword);
+            // J'enregistre les paramètres en base de données
             $userRepository->save($user, true);
 
             return $this->redirectToRoute('app_admin_user_index', [], Response::HTTP_SEE_OTHER);

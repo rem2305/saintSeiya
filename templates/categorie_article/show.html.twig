@@ -1,50 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}CategorieArticle{% endblock %}
+{% block title %}{{ categorie_article.name }}{% endblock %}
 
 {% block body %}
 
-    <h1>{{ categorie_article.name }}</h1>
+    <h1  class="text-center">{{ categorie_article.name }}</h1>
+    <hr>
     
-    <a href="{{ path('app_categorie_article_index') }}">Retourner à la liste des catégories</a>
-
-    {# <div class= "mt-5">
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Titre de l'article</th>
-                <th>Contenu de l'article</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.title }}</td>
-                <td>{{ article.content }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">consulter</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">aucun article trouvé</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    </div> #}
+    {# <a href="{{ path('app_categorie_article_index') }}">Retourner à la liste des catégories</a> #}
 
 
-    <div class="row d-flex justify-content-center text-center">
+    <div class="row d-flex justify-content-center text-center py-3">
             {% for article in articles | reverse %}
-        <div class="card m-1" style="width: 18rem;">
+        <div class="card py-3 m-1 col-2" style="width: 18rem;">
            
-            {# {% if article.image %}            
-            <img src="{{ asset('imagesArticle/' ~ article.image) }}" class="card-img-top" alt="">
-            {% endif %} #}
+            {% if article.image %}            
+            <img src="{{ asset('imagesArticle/' ~ article.image) }}" style="aspect-ratio: 2/2 ; object-fit:cover" class="card-img-top" alt="">
+            {% endif %}
 
             <div class="card-body">
                 <div>
@@ -52,13 +24,10 @@
                     <a href="">supprimer</a> #}
                 </div>
                 <h5 class="card-title">{{ article.title }}</h5>
-                {# <h6 class="card-subtitle mb-2 text-muted">créé le : {{ article.dateDeCreation | date("d/m/Y \à H\\hi") }}</h6>
-                {% if article.dateDemodification is not null %}
-                <h6 class="card-subtitle mb-2 text-muted">modifié le : {{ article.dateDemodification | date("d/m/Y \à H\\hi") }}</h6>
-                {% endif %} #}
+                <h6 class="card-subtitle mb-2 text-muted">créé le : {{ article.dateDeCreation | date("d/m/Y \à H\\hi") }}</h6>
                 {# <h6>{{ article.auteur }}</h6> #}
                 <p class="card-text">{{ article.content | slice(0, 85) }}...</p>
-                <a href="{{ path("app_categorie_article_index", {id: article.id} ) }}" class="btn btn-primary card-link">lire l'article</a>
+                <a href="{{ path("app_article_show", {id: article.id} ) }}" class="btn btn-danger card-link">lire l'article</a>
                 
             </div>
         </div>

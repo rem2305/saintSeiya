@@ -1,11 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Article{% endblock %}
+{% block title %}Nouvel Article{% endblock %}
 
 {% block body %}
-    <h1>Create new Article</h1>
 
+
+
+    <div class="row d-flex justify-content-center text-center">
+
+    
+    <div class="card py-3 m-1 col-6" style="width: 35rem;">
+    <h1>Créer un nouvel article</h1>
+    <div class="card-body">
+    {# <div class="form d-flex justify-content-center"> #}
     {{ include('admin_article/_form.html.twig') }}
+    <hr>
+    {# <div class="d-flex justify-content-center"> #}
+    <a href="{{ path('app_admin_article_index') }}">retour à la liste des articles</a>
+    </div>
+    </div>
+    </div>
 
-    <a href="{{ path('app_admin_article_index') }}">back to list</a>
 {% endblock %}
